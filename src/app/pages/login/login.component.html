@@ -10,19 +10,36 @@
         <span class="uppercase text-2xl font-bold">seja bem-vindo</span><br/>
         <span class="text-lg font-normal">ao sistema Fitengine</span>
       </div>
-      <p class="uppercase text-5xl font-extrabold">login</p>
-      <img class="w-[120px] h-auto mx-auto" src="../../../assets/logo.png" alt="">
-
+      <div>
+        <p class="uppercase text-5xl font-extrabold mb-2 text-dark-medium ">login</p>
+        <span class="font-medium block">Ainda não possui cadastro?<a class="font-bold hover:text-dark-heavy" href="#">CADASTRAR</a></span> <!-- DUPLICATE -->
+      </div>
+      <img class="w-[120px] h-auto mx-auto" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
     </div>
     <div id="right-content-and-mobile"
     class="bg-dark-heavy
-    min-h-screen md:min-h-0 md:h-full md:grow md:rounded-r-large
-    p-8 pt-16
+    min-h-screen md:min-h-0 md:h-full  md:rounded-r-large
+    p-4 md:p-8  md:pt-[60px]
     ">
-      <span class="text-lg lg:text-xl font-semibold">Digite suas credendiciais para entrar</span>
-      <form class="py-8" action="">
-        <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="&#xe158;" type="text"></app-input>
-        <app-input label="senha" name="password" placeholder="Digite sua senha" icon="&#xe0da;" type="password"></app-input>
+      <img class="pb-6 md:hidden w-[120px] h-auto mx-auto mt-5" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
+      <span class="text-base font-semibold">Digite suas credendiciais para entrar</span>
+      <form class="py-8" [formGroup]="reactiveForm" (ngSubmit)="submit()">
+        <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [parentForm]="reactiveForm"></app-input>
+        <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [parentForm]="reactiveForm"></app-input>
+        <div id="remember-credentials" class="ml-2 pb-8 flex items-center">
+          <input
+          type="checkbox" name="credentials"
+          class="w-4 h-4 accent-primary-light"
+          (change)="!rememberCredentials"
+          >
+          <label class="text-sm pl-2" for="credentials">Lembrar credenciais</label>
+        </div>
+
+        <button type="submit" class="mb-6 md:mb-0 block mx-auto rounded-regular uppercase bg-primary-light hover:bg-primary-heavy py-3 px-12 font-bold">entrar</button>
+        <div class="text-center md:hidden"> <!-- DUPLICATE -->
+          <span class="font-medium">Ainda não possui cadastro?</span><br>
+          <a class="font-bold hover:text-dark-heavy underline" href="#">CADASTRAR</a>
+        </div>
       </form>
     </div>
   </div>
