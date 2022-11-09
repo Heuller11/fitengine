@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,20 +10,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   rememberCredentials:boolean = false;
-  reactiveForm!: FormGroup;
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    credentials: new FormControl(this.rememberCredentials)
+  });
 
-  constructor() { }
+  constructor() {
+    // this.loginForm.valueChanges.subscribe((val) => console.log(val));
+  }
 
   ngOnInit(): void {
-    this.reactiveForm = new FormGroup({
-      email: new FormControl(null),
-      password: new FormControl(null),
-      credentials: new FormControl(this.rememberCredentials)
-    });
+
   }
 
   submit() : void {
-    console.log(this.reactiveForm);
+
   }
 
 }

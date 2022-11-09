@@ -1,6 +1,8 @@
-<label class="block" [for]="name" [formGroup]="parentForm">
-  <span class="capitalize text-sm">{{label}}</span>
-  <div class="relative mb-5 mt-2">
+<div class="mb-4">
+  <label class="block capitalize text-sm mb-1" [for]="name">
+    {{label}}
+  </label>
+  <div class="relative">
     <span class="material-symbols-outlined text-2xl
       absolute
       left-5
@@ -8,12 +10,12 @@
       ">{{icon}}
     </span>
     <input
-      [formControlName]="name"
+      [formControl]="control"
       [type]="type" [name]="name" [placeholder]="placeholder"
       class="bg-transparent border-dark-light border-2 focus:border-primary-light outline-none rounded-regular p-2 px-14 w-full h-[60px]"
       >
     <span
-    [class]="originalType === 'password' ? 'block' : 'hidden'"
+    [ngClass]="originalType === 'password' ? 'block' : 'hidden'"
     class="material-symbols-outlined text-2xl
       absolute
       right-5
@@ -24,11 +26,12 @@
       >{{iconPassword}}
     </span>
   </div>
-</label>
-<a
-  href="#"
-  [class]="originalType === 'password' ? 'block' : 'hidden'"
-  class="block text-right mb-2"
-  >
-    <span class="hover:text-primary-light font-medium text-sm">Esqueceu sua senha?</span>
-</a>
+  <ng-container *ngIf="control.invalid && control.dirty && control.touched">
+    <div class="text-red-500 font-medium px-1 pt-1 text-sm" *ngFor="let err of control.errors | keyvalue">{{customValidation.errorMessages[err.key]}}</div>
+  </ng-container>
+</div>
+
+
+
+
+

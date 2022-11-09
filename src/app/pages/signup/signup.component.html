@@ -1,1 +1,44 @@
-<p>signup works!</p>
+<div id="login" class="w-screen md:h-screen md:flex md:justify-center md:items-center">
+  <div id="content" class="md:w-[750px] lg:w-[800px] md:h-[500px] md:flex">
+    <div id="left-content"
+    class="from-primary-light to-primary-heavy bg-gradient-to-br
+    hidden
+    md:flex flex-col justify-between md:w-[330px] lg:w-[350px] h-full rounded-l-large
+    text-center p-8 pt-14
+    ">
+      <div>
+        <span class="uppercase text-5xl font-extrabold mb-2 ">CADASTRO</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-semibold block">Já possui cadastro?</span>
+        <a class="font-bold text-2xl mt-4 py-4 rounded-regular bg-dark-heavy  hover:bg-white hover:text-dark-heavy" href="/">LOGIN</a>
+      </div>
+      <img class="w-[120px] h-auto mx-auto" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
+    </div>
+    <div id="right-content-and-mobile"
+    class="bg-dark-heavy
+    min-h-screen md:min-h-0 md:h-full  md:rounded-r-large
+    p-4 md:p-6
+    ">
+      <img class="pb-6 md:hidden w-[120px] h-auto mx-auto mt-5" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
+      <span class="md:hidden uppercase text-3xl font-extrabold mb-2 text-center block">CADASTRO</span>
+      <form class="py-8 h-full flex flex-col justify-between" [formGroup]="signupForm" autocomplete="off" (ngSubmit)="submit()">
+        <div>
+          <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [group] = "signupForm"></app-input>
+          <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [group] = "signupForm"></app-input>
+          <app-input label="confirmar senha" name="confirmpassword" placeholder="Repita a senha" icon="key" type="password" [group] = "signupForm"></app-input>
+        </div>
+       <div>
+        <button type="submit" [disabled]="signupForm.invalid"  [ngClass]="signupForm.invalid ? 'bg-dark-light text-black' : 'bg-primary-light hover:bg-primary-heavy'"
+        class="mb-5 md:mb-0 mt-2 block mx-auto rounded-regular uppercase py-3 px-12 font-bold">cadastrar</button>
+        <div class="text-center md:hidden"> <!-- DUPLICATE -->
+          <span class="font-medium">Já possui cadastro?</span><br>
+          <a class="font-bold hover:text-dark-heavy underline" routerLink="/">LOGIN</a>
+        </div>
+       </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

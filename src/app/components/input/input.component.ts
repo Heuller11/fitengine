@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 
 @Component({
   selector: 'app-input',
@@ -14,9 +15,11 @@ export class InputComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() icon!: string;
   @Input() iconPassword = 'visibility_off';
-  @Input() parentForm!: FormGroup;
   originalType!: string;
-  controlName!: string;
+
+  @Input() group!: FormGroup;
+  control!: FormControl;
+  customValidation = new CustomvalidationService();
 
   constructor() {
 
@@ -24,7 +27,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     this.originalType = this.type;
-    this.controlName = "'" + this.name + "'";
+    this.control = this.group.get(this.name) as FormControl;
   }
 
   togglePassword() : void {

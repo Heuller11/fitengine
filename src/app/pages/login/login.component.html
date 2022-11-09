@@ -11,35 +11,45 @@
         <span class="text-lg font-normal">ao sistema Fitengine</span>
       </div>
       <div>
-        <p class="uppercase text-5xl font-extrabold mb-2 text-dark-medium ">login</p>
-        <span class="font-medium block">Ainda não possui cadastro?<a class="font-bold hover:text-dark-heavy" href="#">CADASTRAR</a></span> <!-- DUPLICATE -->
+        <span class="uppercase text-5xl font-extrabold mb-2 ">login</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-semibold block">Ainda não possui cadastro?</span>
+        <a class="font-bold text-2xl mt-4 py-4 rounded-regular bg-dark-heavy hover:bg-white hover:text-dark-heavy" routerLink="/cadastro">CADASTRAR</a>
       </div>
       <img class="w-[120px] h-auto mx-auto" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
     </div>
     <div id="right-content-and-mobile"
     class="bg-dark-heavy
-    min-h-screen md:min-h-0 md:h-full  md:rounded-r-large
+    min-h-screen md:min-h-0 h-full  md:rounded-r-large
     p-4 md:p-8  md:pt-[60px]
     ">
       <img class="pb-6 md:hidden w-[120px] h-auto mx-auto mt-5" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
       <span class="text-base font-semibold">Digite suas credendiciais para entrar</span>
-      <form class="py-8" [formGroup]="reactiveForm" (ngSubmit)="submit()">
-        <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [parentForm]="reactiveForm"></app-input>
-        <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [parentForm]="reactiveForm"></app-input>
-        <div id="remember-credentials" class="ml-2 pb-8 flex items-center">
-          <input
-          type="checkbox" name="credentials"
-          class="w-4 h-4 accent-primary-light"
-          (change)="!rememberCredentials"
-          >
-          <label class="text-sm pl-2" for="credentials">Lembrar credenciais</label>
+      <form class="py-8 h-full flex flex-col justify-between" [formGroup]="loginForm" autocomplete="off" (ngSubmit)="submit()">
+        <div class="pb-8">
+          <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [group] = "loginForm"></app-input>
+          <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [group] = "loginForm"></app-input>
+          <span class="text-right block"><a class="hover:text-primary-light font-medium text-sm mb-2" href="#">Esqueceu sua senha?</a></span>
+          <div id="remember-credentials" class="ml-2 flex items-center">
+            <input
+            formControlName="credentials"
+            type="checkbox" name="credentials"
+            class="w-4 h-4 accent-primary-light"
+            (change)="!rememberCredentials"
+            >
+            <label class="text-sm pl-2" for="credentials">Lembrar credenciais</label>
+          </div>
+        </div>
+        <div>
+          <button type="submit" [disabled]="loginForm.invalid"  [ngClass]="loginForm.invalid ? 'bg-dark-light text-black' : 'bg-primary-light hover:bg-primary-heavy'"
+          class="mb-6 md:mb-0 block mx-auto rounded-regular uppercase py-3 px-12 font-bold">entrar</button>
+          <div class="text-center md:hidden"> <!-- DUPLICATE -->
+            <span class="font-medium">Ainda não possui cadastro?</span><br>
+            <a class="font-bold hover:text-dark-heavy underline" routerLink="/cadastro">CADASTRAR</a>
+          </div>
         </div>
 
-        <button type="submit" class="mb-6 md:mb-0 block mx-auto rounded-regular uppercase bg-primary-light hover:bg-primary-heavy py-3 px-12 font-bold">entrar</button>
-        <div class="text-center md:hidden"> <!-- DUPLICATE -->
-          <span class="font-medium">Ainda não possui cadastro?</span><br>
-          <a class="font-bold hover:text-dark-heavy underline" href="#">CADASTRAR</a>
-        </div>
       </form>
     </div>
   </div>
