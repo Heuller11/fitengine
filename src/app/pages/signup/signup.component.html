@@ -23,7 +23,7 @@
       <img class="pb-6 md:hidden w-[120px] h-auto mx-auto mt-5" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
       <span class="md:hidden uppercase text-3xl font-extrabold mb-2 text-center block">CADASTRO</span>
       <form class="py-8 h-full flex flex-col justify-between" [formGroup]="signupForm" autocomplete="off" (ngSubmit)="submit()">
-        <div>
+        <div class="pb-8">
           <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [group] = "signupForm"></app-input>
           <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [group] = "signupForm"></app-input>
           <app-input label="confirmar senha" name="confirmPassword" placeholder="Repita a senha" icon="key" type="password" [group] = "signupForm"></app-input>
