@@ -1,4 +1,4 @@
-<div class="mb-4">
+<div [ngClass]="name !== 'confirmPassword' ? 'mb-4' : ''"> <!-- verification done because confirmPassword has different validation -->
   <label class="block capitalize text-sm mb-1" [for]="name">
     {{label}}
   </label>
@@ -26,8 +26,9 @@
       >{{iconPassword}}
     </span>
   </div>
-  <ng-container *ngIf="control.invalid && control.dirty && control.touched">
-    <div class="text-red-500 font-medium px-1 pt-1 text-sm" *ngFor="let err of control.errors | keyvalue">{{customValidation.errorMessages[err.key]}}</div>
+  <ng-container *ngIf="control.invalid && control.dirty && control.touched && name !== 'confirmPassword'">
+    <div class="text-red-500 font-medium px-1 pt-1 text-sm" *ngFor="let err of control.errors | keyvalue">
+      {{customValidation.errorMessages[err.key]}}</div>
   </ng-container>
 </div>
 

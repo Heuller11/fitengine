@@ -26,7 +26,12 @@
         <div>
           <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [group] = "signupForm"></app-input>
           <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [group] = "signupForm"></app-input>
-          <app-input label="confirmar senha" name="confirmpassword" placeholder="Repita a senha" icon="key" type="password" [group] = "signupForm"></app-input>
+          <app-input label="confirmar senha" name="confirmPassword" placeholder="Repita a senha" icon="key" type="password" [group] = "signupForm"></app-input>
+          <ng-container *ngIf="
+           signupForm.controls['confirmPassword'].dirty && signupForm.errors &&
+           signupForm.controls['confirmPassword'].touched">
+            <div class="text-red-500 font-medium px-1 pt-1 text-sm">{{customValidation.errorMessages['notmatched']}}</div>
+          </ng-container>
         </div>
        <div>
         <button type="submit" [disabled]="signupForm.invalid"  [ngClass]="signupForm.invalid ? 'bg-dark-light text-black' : 'bg-primary-light hover:bg-primary-heavy'"
