@@ -1,13 +1,14 @@
 <div id="login" class="w-screen md:h-screen md:flex md:justify-center md:items-center">
-  <div id="content" class="md:w-[750px] lg:w-[800px] md:h-[500px] md:flex">
+  <app-alert [type]="alert.type" [text]="alert.text" ></app-alert>
+  <div id="content" class="md:w-[750px] lg:w-[900px] md:h-[600px] md:flex">
     <div id="left-content"
     class="from-primary-light to-primary-heavy bg-gradient-to-br
     hidden
-    md:flex flex-col justify-between md:w-[330px] lg:w-[350px] h-full rounded-l-large
+    md:flex flex-col justify-between md:w-[330px] lg:w-[400px] h-full rounded-l-large
     text-center p-8 pt-14
     ">
       <div>
-        <span class="uppercase text-5xl font-extrabold mb-2 ">CADASTRO</span>
+        <span class="uppercase text-4xl lg:text-5xl font-extrabold mb-2 text-center">CADASTRO</span>
       </div>
       <div class="flex flex-col">
         <span class="font-semibold block">Já possui cadastro?</span>
@@ -17,13 +18,15 @@
     </div>
     <div id="right-content-and-mobile"
     class="bg-dark-heavy
+    md:flex-grow
     min-h-screen md:min-h-0 md:h-full  md:rounded-r-large
-    p-4 md:p-6
+    p-4 md:p-6 md:pt-0
     ">
       <img class="pb-6 md:hidden w-[120px] h-auto mx-auto mt-5" src="../../../assets/logo.png" alt=""> <!-- DUPLICATE -->
       <span class="md:hidden uppercase text-3xl font-extrabold mb-2 text-center block">CADASTRO</span>
       <form class="py-8 h-full flex flex-col justify-between" [formGroup]="signupForm" autocomplete="off" (ngSubmit)="submit()">
-        <div class="pb-8">
+        <div class="pb-8 md:pb-0">
+          <app-input label="nome" name="name" placeholder="Digite seu nome completo" icon="person_filled" type="text" [group] = "signupForm"></app-input>
           <app-input label="e-mail" name="email" placeholder="Digite seu e-mail" icon="mail" type="email" [group] = "signupForm"></app-input>
           <app-input label="senha" name="password" placeholder="Digite sua senha" icon="key" type="password" [group] = "signupForm"></app-input>
           <app-input label="confirmar senha" name="confirmPassword" placeholder="Repita a senha" icon="key" type="password" [group] = "signupForm"></app-input>

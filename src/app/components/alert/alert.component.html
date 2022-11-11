@@ -1,0 +1,6 @@
+<div
+  [ngClass]="[show ? 'flex': 'hidden', type === 'success' ? 'bg-green-500': type === 'warning' ? 'bg-orange-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500']"
+  class="w-full md:w-[400px] absolute md:top-10 md:right-10 items-center text-white text-sm font-bold px-4 py-3" role="alert">
+  <span class="mr-2 material-symbols-outlined">{{icon}}</span>
+  <p>{{text}}</p>
+</div>
