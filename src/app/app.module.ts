@@ -10,6 +10,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AlertComponent } from './components/alert/alert.component';
     LoginComponent,
     InputComponent,
     SignupComponent,
-    AlertComponent
+    AlertComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

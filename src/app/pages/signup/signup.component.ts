@@ -17,10 +17,10 @@ export class SignupComponent implements OnInit {
   alert: {type:string, text: string} = {type: '', text: ''};
 
   signupForm: FormGroup = new FormGroup({
-    name: new FormControl('Héuller Soares', [Validators.required]),
-    email: new FormControl('heuller555@gmail.com', [Validators.required, Validators.email]),
-    password: new FormControl('123456', [Validators.required, Validators.minLength(6)]),
-    confirmPassword: new FormControl('123456', [Validators.required, Validators.minLength(6)]),
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
   }, {validators: this.customValidation.passwordMatchingValidator});
 
   constructor(public apiUser: UserService) {
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
   submit() : void {
 
     const valuesForm = this.signupForm.getRawValue();
-    let user: User = {
+    const user: User = {
       name: valuesForm.name,
       email: valuesForm.email,
       password: valuesForm.password

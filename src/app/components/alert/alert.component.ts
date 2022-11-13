@@ -9,10 +9,11 @@ export class AlertComponent implements OnInit {
 
   @Input() type!: string; //success, warning, error, info
   @Input() text!: string;
+  @Input() change!: boolean;
   show: boolean = false;
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes['text'].currentValue){
+    if(changes['change'].currentValue != changes['change'].previousValue && !changes['change'].firstChange){
       this.show = true;
       this.attAlert();
       scroll(0,0);
