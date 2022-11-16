@@ -26,14 +26,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // this.authService.isLoggedIn$ ? this.router.navigate(['home']) : ''
   }
 
   submit() : void {
     const valuesForm = this.loginForm.getRawValue();
     this.authService.login(valuesForm.email, valuesForm.password).subscribe((res) => {
-      console.log(res);
-      // localStorage.setItem('token', res.token);
       this.router.navigate(['home']);
     }, (error) => {
       if(error.error.msg === 'User not found' ){

@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MatchComponent } from './components/match/match.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HomeComponent } from './pages/home/home.component';
     InputComponent,
     SignupComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,

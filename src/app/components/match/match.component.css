@@ -1,0 +1,15 @@
+.home_team .name, .away_team .name {
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+@screen md {
+  .home_team .name, .away_team .name {
+    display: block;
+    width: 100%;
+    flex-grow: 1;
+  }
+}
