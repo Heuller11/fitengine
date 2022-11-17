@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/api/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  data:any;
+
+  constructor(private dataService: DataService) {
+
+  }
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe((response) => {
+      this.data = JSON.parse(JSON.stringify(response));
+    });
   }
 
 }

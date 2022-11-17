@@ -1,15 +1,13 @@
-.home_team .name, .away_team .name {
-  display: inline-block;
+.name {
   width: 200px;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+}
+
+.span-dots {
+  @apply inline-block whitespace-nowrap overflow-hidden overflow-ellipsis
 }
 
 @screen md {
-  .home_team .name, .away_team .name {
-    display: block;
-    width: 100%;
-    flex-grow: 1;
+  .home_team .span-dots, .away_team .span-dots {
+    @apply block w-full grow
   }
 }

@@ -1,9 +1,6 @@
-<div id="home" class="min-w-screen min-h-screen bg-dark-heavy md:pt-10">
+<div id="home" class="min-w-screen min-h-screen bg-dark-heavy md:py-10">
   <div class="md:w-[750px] lg:w-[900px] md:min-h-[300px] bg-dark-medium md:mx-auto rounded-large pb-8 md:p-8">
     <div class="text-center flex py-5 font-semibold text-xl justify-center items-center">Jogos ao vivo <span class="material-symbols-outlined my-auto ml-2 text-red-500">podcasts</span></div>
-    <app-match></app-match>
-    <app-match></app-match>
-    <app-match></app-match>
-    <app-match></app-match>
+    <app-league *ngFor="let league of data | keyvalue" [info]="league"></app-league>
   </div>
 </div>

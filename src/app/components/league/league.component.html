@@ -1,0 +1,7 @@
+<div class="pb-1">
+  <div class="w-100 h-[50px] bg-primary-light rounded-t-regular flex items-center px-5">
+    <span class="text-dark-heavy font-bold">{{name}}</span>
+  </div>
+  <app-match *ngFor="let match of matches" [info]="match"></app-match>
+</div>
+

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatchComponent } from './components/match/match.component';
+import { LeagueComponent } from './components/league/league.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatchComponent } from './components/match/match.component';
     SignupComponent,
     AlertComponent,
     HomeComponent,
-    MatchComponent
+    MatchComponent,
+    LeagueComponent
   ],
   imports: [
     BrowserModule,

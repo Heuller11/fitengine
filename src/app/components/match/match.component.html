@@ -1,24 +1,24 @@
-<div class="w-100 h-[90px] bg-dark-medium flex items-center font-medium pr-2 border-b-2 border-primary-light">
+<div class="w-100 h-[90px] bg-dark-medium hover:bg-dark-light flex items-center font-medium pr-2 border-b rounded-regular my-2 border-primary-light">
   <div class="px-1 md:px-2">
     <span class="material-symbols-outlined text-3xl cursor-pointer">star</span>
   </div>
-  <div class="px-1 md:px-2">
-    <span class="time text-red-500 text-lg">70'</span>
+  <div class="px-1 md:px-2 w-[60px] flex justify-center items-center">
+    <span class="time span-dots text-red-500 text-lg">{{time}}</span>
   </div>
   <div class="grow px-1 md:px-2">
     <div class="home_team flex justify-between pb-2">
       <div class="flex items-center">
-        <img class="inline-block pr-2" src="https://www.flashscore.com/res/image/data/40no1L5k-MDO1sts5.png" alt="">
-        <span class="name">Cruzeiro Esporte Clube</span>
+        <img class="inline-block pr-2" [src]="home_shield" alt="">
+        <span class="name span-dots">{{home_team}}</span>
       </div>
-      <span class="score my-auto text-xl">2</span>
+      <span class="score my-auto text-xl">{{home_score}}</span>
     </div>
     <div class="away_team flex justify-between">
       <div class="flex items-center">
-        <img class="inline-block pr-2" src="https://www.flashscore.com/res/image/data/88mqblXH-f9BMELjI.png" alt="">
-        <span class="name">Raja Casablanca</span>
+        <img class="inline-block pr-2" [src]="away_shield" alt="">
+        <span class="name span-dots">{{away_team}}</span>
       </div>
-      <span class="score my-auto text-xl">1</span>
+      <span class="score my-auto text-xl">{{away_score}}</span>
     </div>
   </div>
 </div>
