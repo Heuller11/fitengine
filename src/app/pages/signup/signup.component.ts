@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   rememberCredentials:boolean = false;
   customValidation = new CustomvalidationService();
 
-  alert: {type:string, text: string} = {type: '', text: ''};
+  alert: {type:string, text: string, change: boolean} = {type: '', text: '', change: false};
 
   signupForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),

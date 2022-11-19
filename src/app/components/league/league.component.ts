@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LeagueComponent implements OnInit {
 
   @Input() info!:any;
-  matches!:any;
 
+  matches!:any;
   name!:string;
 
 

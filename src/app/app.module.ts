@@ -13,6 +13,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatchComponent } from './components/match/match.component';
 import { LeagueComponent } from './components/league/league.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { LeagueComponent } from './components/league/league.component';
     AlertComponent,
     HomeComponent,
     MatchComponent,
-    LeagueComponent
+    LeagueComponent,
+    LoginLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [
     BrowserModule,

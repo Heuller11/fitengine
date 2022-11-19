@@ -20,14 +20,12 @@ export class MatchComponent implements OnInit {
   home_shield!:string;
   away_shield!:string;
 
-
-
-
-
   constructor() { }
 
   ngOnInit(): void {
-    this.time = this.info.time;
+
+    const reNumber = /[0-9]/;
+    this.time = reNumber.test(this.info.time) ?  this.info.time + "'" : this.info.time;
 
     this.home_team = this.info.teams.home;
     this.away_team = this.info.teams.away;
@@ -35,10 +33,10 @@ export class MatchComponent implements OnInit {
     this.home_score = this.info.scoreboard.home;
     this.away_score = this.info.scoreboard.away;
 
-    this.home_shield = 'https://www.flashscore.com/' + this.info.shields.home;
-    this.away_shield = 'https://www.flashscore.com/' + this.info.shields.away;
+    this.home_shield = 'https://www.livescore.in/' + this.info.shields.home;
+    this.away_shield = 'https://www.livescore.in/' + this.info.shields.away;
 
-    console.log(this.home_shield)
+
   }
 
 }
