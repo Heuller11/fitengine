@@ -20,13 +20,13 @@ export class HomeComponent implements OnInit {
 
     this.dataService.getData().subscribe((response) => {
       this.data = response;
-      // this.verifyHalfTime();
+      this.verifyHalfTime();
     })
 
     interval(30000).subscribe(() => {
       this.dataService.getData().subscribe((response) => {
         this.data = response;
-        // this.verifyHalfTime();
+        this.verifyHalfTime();
       })
 
     })
@@ -50,6 +50,13 @@ export class HomeComponent implements OnInit {
           }
           else{
             this.matchesHalfTime[match.key] = match
+            const message:string = 'Jogo no intervalo: ' + match.teams.home + ' x ' + match.teams.away;
+            this.dataService.sendMessage(message).subscribe((res) => {
+              console.log(res);
+            }, (error) => {
+              console.log(error)
+            })
+
           }
         }
       })
